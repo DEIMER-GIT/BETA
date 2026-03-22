@@ -1,0 +1,263 @@
+:root {
+    --bg-color: #0b0c10;
+    --container-bg: #1f2833;
+    --text-color: #c5c6c7;
+    --primary: #fcae66;
+    --secondary: #6d2440;
+    --error: #ff003c;
+    --success: #39ff14;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Press Start 2P', monospace;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    background-image: linear-gradient(rgba(11, 12, 16, 0.9), rgba(11, 12, 16, 0.9)),
+        url('https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    line-height: 1.6;
+    font-size: 12px;
+}
+
+/* Scanline effect */
+body::after {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 2;
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+}
+
+h1,
+h2,
+h3 {
+    color: var(--primary);
+    text-shadow: 2px 2px 0px var(--secondary);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+a {
+    color: var(--primary);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+a:hover {
+    color: var(--secondary);
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 3;
+}
+
+/* Navbar */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+    border-bottom: 4px solid var(--primary);
+    margin-bottom: 30px;
+}
+
+nav button {
+    background: none;
+    border: none;
+    color: var(--primary);
+    font-family: 'Press Start 2P', monospace;
+    font-size: 12px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+nav button:hover {
+    color: var(--text-color);
+    text-shadow: 0 0 5px var(--primary);
+}
+
+nav button.active {
+    color: var(--text-color);
+    border-bottom: 2px solid var(--primary);
+}
+
+/* Forms */
+.form-container {
+    background-color: var(--container-bg);
+    border: 4px solid var(--primary);
+    padding: 30px;
+    max-width: 500px;
+    margin: 50px auto;
+    box-shadow: 10px 10px 0px rgba(102, 252, 241, 0.2);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--primary);
+}
+
+input {
+    width: 100%;
+    padding: 15px;
+    background-color: #000;
+    border: 2px solid var(--secondary);
+    color: var(--primary);
+    font-family: 'Press Start 2P', monospace;
+    font-size: 12px;
+    outline: none;
+}
+
+input:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 10px rgba(102, 252, 241, 0.5);
+}
+
+button.btn {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background-color: var(--primary);
+    color: #000;
+    border: none;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 12px;
+    cursor: pointer;
+    text-transform: uppercase;
+    margin-top: 10px;
+    transition: all 0.2s;
+}
+
+button.btn:hover {
+    background-color: var(--text-color);
+    box-shadow: 0 0 15px var(--primary);
+}
+
+.text-center {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.error-msg {
+    color: var(--error);
+    margin-top: 10px;
+    display: none;
+}
+
+.success-msg {
+    color: var(--success);
+    margin-top: 10px;
+    display: none;
+}
+
+/* Catalog Grid */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background-color: var(--container-bg);
+    border: 4px solid var(--secondary);
+    padding: 15px;
+    transition: transform 0.2s, border-color 0.2s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+    box-shadow: 5px 5px 0px rgba(102, 252, 241, 0.4);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border: 2px solid #000;
+    margin-bottom: 15px;
+    image-rendering: pixelated;
+}
+
+.card-title {
+    font-size: 14px;
+    margin-bottom: 10px;
+    height: 35px;
+}
+
+.card-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    font-size: 10px;
+    color: #888;
+}
+
+.platform-badge {
+    background-color: var(--primary);
+    color: #000;
+    padding: 3px 6px;
+}
+
+/* Profile */
+.profile-header {
+    background-color: var(--container-bg);
+    border: 4px solid var(--primary);
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 50px;
+    border: 2px dashed var(--secondary);
+    color: var(--secondary);
+}
+
+/* Utilities */
+.hidden {
+    display: none !important;
+}
+
+/* Modal for notifications */
+#toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--primary);
+    color: #000;
+    padding: 15px 20px;
+    border: 4px solid #fff;
+    z-index: 100;
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+#toast.show {
+    transform: translateY(0);
+    opacity: 1;
+}
